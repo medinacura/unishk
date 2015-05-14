@@ -27,12 +27,12 @@
 		<div class="post">
 			<div class="post_mrena">
 			<div class="divi_fotos" >
-				<img width="200px" src="perd1/foto/export.jpg" />
+				<img width="200px" src="perd3/foto/11225513_904146869627964_1080658095_n.jpg" />
 			</div>
 			</div>
 			<div class="divi_pershkrimi" width="200px" >
 			<div class="emri">Medina Cura</div>
-			<div class="pershkrimi">medina cura asefsadsadsadsafds afsdgdsgfsdfjksdhfsdiuhfjkdshfuidshfis</div>
+			<div class="pershkrimi">Medina ds afsdgdsgfsdfjksdhfsdiuhfjkdshfuidshfis</div>
 			</div>
 		</div>
 		
