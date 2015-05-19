@@ -26,7 +26,7 @@
         else header("Location: index.php?gabim_ne_nderrimin_e_fotos=".$_POST["s_id"]);
      
      $foto_e_vlefshme=1;
-     $dir_e_perd = "perd".$perd[0]["stud_id"]."/foto/";
+     $dir_e_perd = "studente/".$perd[0]["stud_id"]."/foto/";
      $foto_dir = $dir_e_perd . basename($_FILES["f_profili"]["name"]);
      
      $tipi_fotos = pathinfo($foto_dir,PATHINFO_EXTENSION);
@@ -35,8 +35,9 @@ if( $tipi_fotos != "jpg" &&  $tipi_fotos != "png" && $tipi_fotos != "jpeg"&&  $t
      $foto_e_vlefshme=0;// kontrollojme nqs eshte e vlefshme fotoja
 }
 if ($foto_e_vlefshme != 0) {
-    mkdir("perd".$perd[0]["stud_id"]);
-    mkdir("perd".$perd[0]["stud_id"]."/foto");
+    mkdir("studente");
+    mkdir("studente".$perd[0]["stud_id"]);
+    mkdir("studente".$perd[0]["stud_id"]."/foto");
     if($perd[0]["s_foto"]!="img/def_profile_pic.jpg")unlink($perd[0]["s_foto"]);// fshihet fotoja e vjeter nqs nuk eshte fotoja default
     
     move_uploaded_file($_FILES["f_profili"]["tmp_name"], $foto_dir);

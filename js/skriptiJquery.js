@@ -26,28 +26,5 @@ if (pageID != null ){
 	$('#butonprofili').html(emerstudenti +"<img id='atagfoto'src='img/def_profile_pic.jpg' alt='foto profili' >");
 
 
-	$("#ndryshofjalkalimintext").click(function(){
-		
-		$(".rightdiv").animate({
-		height:'455px'
-		});
-		$(this).fadeOut(200);
-		$("#ndryshofjalkalimin_kutite").hide();
-		$("#ndryshofjalkalimin_kutite").css('display','inline');
-		$("#ndryshofjalkalimin_kutite").fadeIn(1000);
-		
-		});
-	
-	$("#anullo_pass").click(function(){
-		
-		$("#ndryshofjalkalimin_kutite").fadeToggle(300);
-			$(".rightdiv").animate({
-		height:'300px'
-		
-		});
-		$("#ndryshofjalkalimintext").fadeIn(300);
-		});
-	
-	
 	
 });
