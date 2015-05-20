@@ -88,20 +88,25 @@
   					</div>
   					 <?php if($profili_i_loguar){ ?>
                      <p id="ndryshofjalkalimintext" onclick="shfaq_div_ndrysho_pas()">Ndrysho fjalkalimin</p>
-                    <div id="ndryshofjalkalimindiv" style='display:none;'  >
+                     <div id="ndryshofjalkalimindiv" style='display:none;'  >
                    
                    
   							<div id="ndryshofjalkalimin_kutite">
+  								<form method="post" action="ndrysho_student_pas.php">
                    				 <p  >Fjalkalimi i vjeter</p>
-                    			<input type="password"  id="old_pass">
+                    			<input type="password" name="pas_ekz" id="old_pass">
                    					 <p>Fjalkalimi i ri</p>
-                    			<input type="password"  id="new_pass">
-                    			<p  >Kofirmo fjalkalimin e ri</p>
-                   			    <input type="password"  id="confirm_pass">
+                    			<input type="password"  name="pas_i_ri"  id="new_pass">
+                    			<p>Kofirmo fjalkalimin e ri</p>
+                   			    <input type="password"  name="pas_i_ri2"   id="confirm_pass">
+                     <input type="hidden" name="src" value="student">
+                     <input type="hidden" name="s_id" value=<?php echo "'".$student[0]['stud_id']."'"; ?>>
                     
-                    <input type="button" value="Ruaj"  id="ruaj">
+                    <input type="submit" value="Ruaj"  id="ruaj">
                     <input type="button" value="Anullo" onclick="shfaq_div_ndrysho_pas()"  id="anullo_pass">
-                    				</div>
+                    			</form>	
+                    		
+                    		</div>
   					</div>
   					<?php } ?>
   				</div>
