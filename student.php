@@ -70,7 +70,7 @@
   					<input type="hidden" name="id" value=<?php echo"'".$stud_id."'"; ?>/>
   					<div id="te_dhenat_personale_div">
   						<?php if($profili_i_loguar){ ?>
-  						<a href="kerko_ndryshim_te_dhenash.php" alt="kerko_ndryshim_te_dhenash"><img align="right" style="margin-top: -10px;" src="img/ndrysho.png" width="50px" height="50px"  /></a>
+  						<img align="right" style="margin-top: -10px;" id="img_men_ndrysho" src="img/ndrysho.png" width="50px" height="50px" onclick="shfaq_menu_djathtas()"  />
   						<?php } ?>
   						<p>Emri i plote<br><font style="color:black"><?php echo $student[0]["s_emri"]." ".$student[0]["s_mbiemri"];   ?></font></p>
  					 </div>
@@ -84,9 +84,6 @@
   					<p>Kontakt<br><font style="color:black">CEL : <?php echo $student[0]["s_cel"]; ?> , Email : <?php echo $student[0]["s_email"]; ?></font></p>
   					</div>
                     <div id="te_dhenat_personale_div">
-  					<p>Tema e diplomes<br><font style="color:black">tema</font></p>
-  					</div>
-                     <div id="te_dhenat_personale_div">
   					<p>Datelindja <br><font style="color:black"><?php echo $ditelindja_formatizuar." ( ".$mosha->y." vjec )"; ?></font></p>
   					</div>
   					 <?php if($profili_i_loguar){ ?>
@@ -111,12 +108,32 @@
       </div>
       <div class="tema_cv" id="cv_tema">
       	  <div class="but_tema_cv" align="middle">
-      	  <input type="button" value="hap temen e diplomes" />
-      	  <input type="button" value="hap CV e studentit" id='but_hap_cv' onclick="hap_mbyll_cv()" />
+      	  <input type="button" value="Hap temen e diplomes" id='but_hap_tema' onclick="hap_mbyll_teme()" />
+      	  <input type="button" value="Hap CV e studentit" id='but_hap_cv' onclick="hap_mbyll_cv()" />
       	  </div>
-      <div class="cv_div" align="middle" style="display: none;padding-bottom: 20px;">
+      <div class="tema_div" align="middle" style="display: none;padding-bottom: 20px;">
+      <?php if($student[0]['s_tema']!=0){
+      	 echo "<div id='pershkrim_teme_div' align='left'>
+  			   Tiltulli i temes se diplomes<br><font>{$tema[0]["t_tema"]}</font>
+  			   </div>";
+      	 echo "<div id='pershkrim_teme_div' align='left'>
+  			   Objektivat e temes se diplomes<br><font>{$tema[0]["t_objektivat"]}</font>
+  			   </div>";
+      	 echo "<div id='pershkrim_teme_div' align='left'>
+  			   Pershkrimi i temes se diplomes<br><font>{$tema[0]["t_pershkrimi"]}</font>
+  			   </div>";
+      	 echo "<div id='pershkrim_teme_div' align='left'>
+  			   Dokumenti i temes se diplomes<br>
+  			   </div>";
+      	 echo "<iframe   width='95%' src='{$tema[0]["t_tema_sked"]}' height='100%'></iframe>";
+	  
+	  		}else echo "<h2 style='color:black'>Studenti akoma nuk eshte diplomuar ... :( </h2>";
+      	?>
+      	
+  	  </div>
+  	  <div class="cv_div" align="middle" style="display: none;padding-bottom: 20px;">
       <?php if($profili_i_loguar){ ?>
-      	<input type="button" value="ngarko ne cv te re" onclick="shfaq_div_ndrysho_cv()" id="but_ndr_cv" />
+      	<input type="button" value="ngarko ne cv te re" onclick="shfaq_div_ndrysho_cv()" id="but_ndr_cv"  />
       	   <div id="div_ngarko_cv" style="margin:15px;display: none;width: 400px;">
       		<form method='post' action='ndrysho_student_cv.php' enctype='multipart/form-data' id='forma_ndryshimit_te_cv'>
                      <input type="file" style="color:#000000" id="ngarko_cv" onchange="umor_cv(1)" name="cv_e_re">
@@ -135,7 +152,31 @@
        
       </div>
     </div>
-
+<div class="menu_ndrysho_container">
+	<img src="img/mbyll_menu.png" onclick="shfaq_menu_djathtas()" width="100px" style="margin-left: 10px;" />
+	<div style="margin: 15px;">
+		<form method="post" action="ndrysho_student_kontakt_adr.php" >
+			<div class="menu_tituj" style="font-size: 20px;">Ndrysho te dhenat tuaja ...</div>
+			<hr />
+			<div style="padding: 5px;padding-top: 15px;">
+			<div class="menu_tituj" style="font-size: 18px;">Kontakt</div>
+			<div class="menu_tituj" align="right"> Cel <input name="input_cel" type="text" value="<?php echo $student[0]["s_cel"]; ?>" placeholder="Nr Cel" /></div>
+			<div class="menu_tituj" align="right">Email <input name="input_email" type="text" value="<?php echo $student[0]["s_email"]; ?>" placeholder="Email" /></div>
+			</div>
+			<hr />
+			<div style="padding: 5px;padding-top: 15px;">
+			<div class="menu_tituj" style="font-size: 18px;">Adresa</div>
+			<div class="menu_tituj" align="right"><input name="input_adr" type="text" value="<?php echo $student[0]["s_adr"]; ?>" placeholder="Adresa" /></div>
+			</div>
+			<hr />
+                     <input type="hidden" name="src" value="student">
+                     <input type="hidden" name="s_id" value=<?php echo "'".$student[0]['stud_id']."'"; ?>>
+			<div class="menu_tituj" align="right"><input type="submit" style="width: 60%;background-color: #0099ff;color: #FFFFFF;" value="Ndrysho !" /></div>
+		
+		<a style="font-size: 16px;" href="ndrysho_studenn">Ndrysho te dhena te tjera</a>
+		</form>
+	</div>
+</div>
 <div class="footer">
 
 <div  class="copyrightdiv">
